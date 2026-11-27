@@ -1,0 +1,180 @@
+site:
+  name: kayak
+  kind: search
+  base_url: https://www.kayak.com
+  zip_method: none
+  zip_ui: {}
+  block_status_codes:
+  - 403
+  - 429
+  - 503
+  block_text_markers:
+  - Access Denied
+  - captcha
+  - are you a robot
+  - unusual traffic
+  - Please confirm you are a human
+  - security check
+  - What is a bot
+  - help/bots
+  - ¿Qué es un bot
+search:
+  api_url_pattern: flights/poll
+  api_only: true
+  card_selector: '[data-resultid]'
+  price_selector: ''
+  provider_selector: ''
+  key_mode: normalized
+  key_include_provider: true
+  provider_badges:
+  - Airline
+  - Aerolínea
+  - Precio más bajo
+  - Lowest price
+  - Instant Book
+  - Reserva instantánea
+  - Cheapest
+  - El más barato
+  known_providers:
+  - Expedia
+  - Priceline
+  - Orbitz
+  - CheapOair
+  - Cheapflightsfares
+  - Trip.com
+  - Kiwi.com
+  - Mytrip
+  - Gotogate
+  - Booking.com
+  - Hopper
+  - Travelocity
+  - Justfly
+  - FlightHub
+  - Rumbo
+  - eDreams
+  - Flightnetwork
+  - Opodo
+  - Bravofly
+  - lastminute.com
+  skip_ads: true
+  ad_pattern: \bAd\b|Sponsored
+  volatile_text_patterns:
+  - \b\d+% off\b
+  - \bcompare\b
+  - \bview deal\b
+  - \bselect\b
+  - \b\d+ seats? left\b
+  - \bbook now\b
+  - \bcheapest\b|\bbest\b|\bquickest\b
+  max_results: 50
+  dismiss_selectors:
+  - div[role='dialog'] button[aria-label*='close' i]
+  - div[role='dialog'] [aria-label*='close' i]
+  - button[aria-label='Close']
+  - '[class*=''close'' i][role=''button'']'
+  expand_providers: false
+  expand_top_n: 5
+  expand_wait_ms: 4000
+  select_button_regex: ^(Select|Seleccionar|View deal|Ver oferta)$
+  book_button_regex: ^(Book|Reservar|Book on KAYAK|Reservar en KAYAK|Go to site|Ir
+    al sitio|View deal|Ver oferta)$
+  first_result_timeout_ms: 45000
+  settle_max_s: 30
+  queries:
+  - id: SFO-ICN_0115
+    url: '{base}/flights/SFO-ICN/2027-01-15?sort=price_a'
+  - id: SFO-JFK_0112
+    url: '{base}/flights/SFO-JFK/2027-01-12?sort=price_a'
+  - id: LAX-ORD_0114
+    url: '{base}/flights/LAX-ORD/2027-01-14?sort=price_a'
+  - id: BOS-MIA_0119
+    url: '{base}/flights/BOS-MIA/2027-01-19?sort=price_a'
+  - id: SEA-DEN_0113
+    url: '{base}/flights/SEA-DEN/2027-01-13?sort=price_a'
+  - id: ATL-LAS_0120
+    url: '{base}/flights/ATL-LAS/2027-01-20?sort=price_a'
+  - id: JFK-LHR_0121
+    url: '{base}/flights/JFK-LHR/2027-01-21?sort=price_a'
+  - id: DFW-SFO_0116
+    url: '{base}/flights/DFW-SFO/2027-01-16?sort=price_a'
+  variants:
+    us_en:
+      base: https://www.kayak.com
+      locale: en-US
+    us_es:
+      base: https://www.es.kayak.com
+      locale: es-US
+    ec_es:
+      base: https://www.kayak.com.ec
+      locale: es-EC
+      timezone_id: America/Guayaquil
+    ar_es:
+      base: https://www.kayak.com.ar
+      locale: es-AR
+      timezone_id: America/Argentina/Buenos_Aires
+  personas:
+    clean: []
+    budget:
+    - '{base}/flights/SFO-LAS/2027-02-05?sort=price_a'
+    - https://www.spirit.com/
+    - https://www.flyfrontier.com/
+    - https://www.kayak.com/hotels/Las-Vegas,NV-c11371/2027-02-05/2027-02-07/2adults?sort=price_a
+    luxury:
+    - '{base}/flights/SFO-JFK/2027-02-05/first?sort=bestflight_a'
+    - '{base}/flights/JFK-LHR/2027-02-05/business?sort=bestflight_a'
+    - https://www.fourseasons.com/
+    - https://www.aman.com/
+browser:
+  engine: chromium
+  headless: true
+  locale: en-US
+  timezone_id: America/Los_Angeles
+  page_timeout_ms: 60000
+  save_screenshots: true
+  devices:
+    desktop: Desktop Chrome
+    mobile: iPhone 14
+politeness:
+  min_delay_s: 8
+  max_delay_s: 18
+  daily_page_cap: 1500
+  stop_session_on_block: true
+storage:
+  db_path: data/kayak.sqlite
+  screenshot_dir: data/screenshots_kayak
+zips:
+  pilot_zip: ''
+  exp0_zip: ''
+  exp1:
+    low: []
+    high: []
+pilot:
+  n_items: 2
+  interval_min: 4
+  hours: 24
+  device: desktop
+  persona: clean
+  persistent_session: true
+exp0:
+  sessions_per_slot: 6
+  launch_window_s: 60
+  rounds_per_session: 2
+  round_gap_min: 25
+  device: desktop
+  persona: us_en
+  slots_local:
+  - 09:00
+  - '13:00'
+  - '17:00'
+  - '21:00'
+  days: 5
+exp1:
+  personas:
+  - us_en
+  - us_es
+  - ec_es
+  reference_persona: us_en
+  reps_per_cell: 2
+  devices:
+  - desktop
+  - mobile

@@ -1,0 +1,39 @@
+{
+ "A0_default": [
+  "ARS",
+  500760
+ ],
+ "A1_currency_param": [
+  null,
+  null
+ ],
+ "A2_curr_param": [
+  null,
+  null
+ ],
+ "localStorage_changed": {},
+ "B_reload_after_switch": [
+  null,
+  null
+ ],
+ "cookies_all": {
+  "Apache": "d_ocLg-AAABoholevM-5a-SqDwUA",
+  "cluster": "5",
+  "p1.med.sid": "R-5Y1adLPH24OXDhfSqBH$p-VO9_BZ7OQII8bQ_y7SpnpL49kq2ptS5kbJ_0bJ9d1",
+  "kayak": "4FFo8XU4pOYHUqObSv9d",
+  "csid": "480fc0c3-d5cc-48d8-bda1-80fc5cf221b6",
+  "kmkid": "ARl_su5YpbP-CURs1o6ifU0",
+  "kayak.mc": "Af794FcyVCiiC30F-xe8K00zMVuzTEo2OEnrN9L8RXCnGQyCn3x_VNdHUCenVzLJPlw1ssw-5v3mDgW1qByBw6lNoTlhCU6gyH_wuJlLm0-H-ZOrZg8KpE9C",
+  "_ga": "GA1.1.1475320947.1795734994",
+  "__gads": "ID=89ee404eb7360d8c:T=1795734995:RT=1795734995:S=ALNI_MbABTTGdiutziTudX4Yy0u6H962Sw",
+  "__gpi": "UID=000015eff4fc122c:T=1795734995:RT=1795734995:S=ALNI_MZcAJJBJjAc6cd-jQIQ0f0UelEMag",
+  "__eoi": "ID=ac209d11096f14ea:T=1795734995:RT=1795734995:S=AA-AfjbekqT8VG7tn6Lfq-0Xs23v",
+  "IDE": "AHWqTUkWLzsNIBBoqoteKBXfhNddILKEvJqyr9JggUGwU19jfXaHloe1JQhqbQ1vB70",
+  "_ga_PWCRSK2Y5Y": "GS2.1.s1795734994$o1$g1$t1795735050$j4$l0$h932704355",
+  "mst_iBfK2w": "LefYjpkXd8vt-vfG_-kLCzm-V_Xuwp3PZY8jEC-2vsUhHDZccdpcj1hGjEHo12zrJx6NTQu2qaVew8NGTgvZ2w",
+  "FCCDCF": "%5Bnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2C%5B%5B32%2C%22%5B%5C%22e1cfca0e-ea66-479f-b2f4-610b1e9b2059%5C%22%2C%5B1795",
+  "mst_ADIrlA": "rxo7hsK8dWgdxDnI1Ld_2bydXejQEAktznCUtHiHfqMs8_XM8L2b3WrmNVIitOFTbUSOm3PMTDHZoUuSAKLVlA",
+  "forterToken": "8c294f9a5b274162b11c56f0cbc4eb33_1795735050540__UDF43-m4_21ck_",
+  "FCNEC": "%5B%5B%22AKsRol8xfLjAo7XV8feqscNww91D_a5u8FKsizqxeRYzg_DSTppIyi3d4BoVa9cocOd8G-7LtLvf7UYBM7myUQp8wNwmin2H-w%3D%3D%22%5D%"
+ }
+}

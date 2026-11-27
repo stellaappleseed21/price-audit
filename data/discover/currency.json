@@ -1,0 +1,8 @@
+{
+ "url_after": "https://www.kayak.com.ar/flights/SFO-ICN/2027-01-15?sort=price_a",
+ "cookies_changed": {},
+ "poll_url_before": "https://www.kayak.com.ar/i/api/search/dynamic/flights/poll",
+ "poll_url_after": null,
+ "poll_post_before": "{\"filterParams\":{},\"userSearchParams\":{\"legs\":[{\"origin\":{\"airports\":[\"SFO\"],\"locationType\":\"airports\"},\"destination\":{\"airports\":[\"ICN\"],\"locationType\":\"airports\"},\"date\":\"2027-01-15\",\"flex\":\"exact\"}],\"searchId\":\"vkFCENjXuK\",\"passengers\":[\"ADT\"],\"passengerDetails\":[{\"ptc\":\"ADT\"}],\"sortMode\":\"price_a\"},\"searchMetaData\":{\"pageNumber\":1,\"searchTypes\":[],\"skipResultsInSecondPhase\":false}}",
+ "poll_post_after": null
+}

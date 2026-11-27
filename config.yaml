@@ -1,0 +1,94 @@
+# ============================================================
+# ZIP price audit: global configuration
+# Items marked [TODO] should be filled after running discover.py and inspecting the site
+# ============================================================
+
+site:
+  name: staples
+  base_url: "https://www.staples.com"
+  # ---- how to set the ZIP: ui / cookie / none ----
+  zip_method: ui
+  zip_ui:                                   # [TODO] replace with real selectors found with discover.py
+    open_selector: "button:has-text('ZIP'), [data-testid*='zip'], [aria-label*='ZIP']"
+    input_selector: "input[name*='zip' i], input[id*='zip' i], input[placeholder*='ZIP' i]"
+    submit_selector: "button[type='submit']:visible"
+    confirm_selector: ""                    # element showing the current ZIP (optional; used to check the ZIP took effect)
+  zip_cookie:                               # used when zip_method: cookie
+    name: ""
+    value_template: "{zip}"
+    domain: ".staples.com"
+  # ---- price parsing (tried in order; the first that succeeds wins) ----
+  price_dom_selector: ""                    # [TODO] price element on the page, e.g. "[data-testid='price']"
+  price_api_url_pattern: ""                 # [TODO] URL fragment of the request returning price JSON, e.g. "/product/price"
+  price_json_keys: ["finalPrice", "salePrice", "price", "currentPrice"]
+  list_price_json_keys: ["listPrice", "wasPrice", "regularPrice"]
+  # ---- block detection ----
+  block_status_codes: [403, 429, 503]
+  block_text_markers:
+    - "Access Denied"
+    - "Pardon Our Interruption"
+    - "captcha"
+    - "Robot or human"
+    - "are you a robot"
+    - "unusual traffic"
+
+browser:
+  engine: chromium            # chromium / webkit (webkit emulates iPhone more faithfully)
+  headless: true
+  locale: "en-US"
+  timezone_id: "America/Los_Angeles"
+  page_timeout_ms: 45000
+  save_screenshots: true      # save a screenshot on every load for manual spot checks
+  devices:
+    desktop: "Desktop Chrome"
+    mobile: "iPhone 14"
+
+politeness:
+  min_delay_s: 4              # minimum gap between two loads in the same session
+  max_delay_s: 9
+  daily_page_cap: 3000        # [TODO] set to the cap given by counsel
+  stop_session_on_block: true
+
+storage:
+  db_path: "data/loads.sqlite"
+  screenshot_dir: "data/screenshots"
+
+# ---- product list ----
+# choose your own id; url is the product page; category is used for BH multiple-testing groups
+items:
+  # [TODO] replace with real product page URLs (18). The first 3 are also used for the pilot
+  - {id: swingline_stapler, category: office,  url: "https://www.staples.com/REPLACE_ME/product_1"}
+  - {id: copy_paper_ream,   category: paper,   url: "https://www.staples.com/REPLACE_ME/product_2"}
+  - {id: hp_ink_63,         category: ink,     url: "https://www.staples.com/REPLACE_ME/product_3"}
+
+zips:
+  pilot_zip: "94704"          # [TODO]
+  exp0_zip: "94704"           # [TODO]
+  # Exp 1: 3 ZIPs per income tier. Generate with acs_zips.py and paste here
+  exp1:
+    low:  ["00000", "00001", "00002"]
+    high: ["00003", "00004", "00005"]
+
+pilot:
+  n_items: 3
+  interval_min: 2
+  hours: 24
+  device: desktop
+  persistent_session: true    # true = one session throughout (measures the platform's own repricing)
+
+exp0:
+  sessions_per_slot: 6
+  launch_window_s: 120        # the 6 sessions start one after another within 2 minutes
+  rounds_per_session: 3       # each session visits each of the 18 products 3 times
+  round_gap_min: 20           # 20 minutes between rounds
+  device: desktop
+  slots_local: ["09:00", "13:00", "17:00", "21:00"]   # 4 slots per day
+  days: 5
+
+exp1:
+  devices: [desktop, mobile]
+  launch_window_s: 120
+  rounds_per_session: 3
+  round_gap_min: 20
+  slots_local: ["09:00", "13:00", "17:00", "21:00"]
+  days: 5

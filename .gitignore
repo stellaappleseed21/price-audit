@@ -1,0 +1,29 @@
+# Python environment and caches
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Debug scripts and backups (kept locally only)
+scratch/
+
+# Raw downloads that can be re-downloaded from HUD
+data/hud
+data/hud_
+
+# SQLite temporary files
+*.sqlite-wal
+*.sqlite-shm
+*.sqlite-journal
+
+# Simulated data (regenerate with simulate.py)
+data/sim.sqlite
+data/sim_zipmeta.csv
+
+# Secrets and local settings
+.env
+*.key
+.DS_Store
+
+# Share archives
+*.zip
